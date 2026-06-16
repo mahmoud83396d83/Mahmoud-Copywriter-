@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && esbuild api/boot.ts --platform=node --bundle --format=esm --outdir=dist --banner:js=\"import { createRequire } from 'module';const require = createRequire(import.meta.url);\"",
+    "build": "vite build && esbuild api/boot.ts --platform=node --bundle --format=esm --outdir=dist --tsconfig=tsconfig.server.json --external:hono --external:@hono/node-server --external:@trpc/server --external:drizzle-orm --external:mysql2 --external:jose --external:bcryptjs --external:dotenv --external:cookie --external:superjson --external:zod --banner:js=\"import { createRequire } from 'module';const require = createRequire(import.meta.url);\"",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "NODE_ENV=production node dist/boot.js",
@@ -88,7 +88,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@hono/vite-dev-server": "^0.19.0",
+    "@hono/vite-dev-server": "^0.26.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
