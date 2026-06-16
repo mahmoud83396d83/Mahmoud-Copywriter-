@@ -82,7 +82,7 @@ export const localAuthRouter = createRouter({
         .where(eq(schema.localUsers.username, input.username))
         .limit(1);
 
-      const user = rows.at(0);
+      const user = rows[0];
       if (!user) {
         throw new TRPCError({
           code: "UNAUTHORIZED",

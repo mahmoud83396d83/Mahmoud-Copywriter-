@@ -36,7 +36,7 @@ export async function verifyLocalToken(token: string): Promise<LocalUser | undef
       .where(eq(schema.localUsers.id, userId))
       .limit(1);
 
-    return rows.at(0);
+    return rows[0];
   } catch {
     return undefined;
   }
